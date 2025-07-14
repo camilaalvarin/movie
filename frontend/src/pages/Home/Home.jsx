@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import { searchMovies, getPopularMovies } from '../../api/api';
 import MovieList from '../../components/MovieList/MovieList';
-import SearchBar from '../../components/SearchBar/SearchBar';
+// import SearchBar from '../../components/SearchBar/SearchBar';
+import Navbar from '../../components/Navbar/Navbar';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -42,7 +43,8 @@ const Home = () => {
 
   return (
     <div>
-      <SearchBar onSearch={handleSearch} />
+      <Navbar onSearch={handleSearch} />
+      {/* <SearchBar onSearch={handleSearch} /> */}
       {loading && <p>Cargando...</p>}
       {error && <p>Error: {error}</p>}
       <MovieList movies={movies} />
