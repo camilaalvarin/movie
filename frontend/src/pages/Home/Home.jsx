@@ -13,7 +13,9 @@ const Home = () => {
   const handleSearch = async (query) => {
     setLoading(true);
     try {
-      const data = await searchMovies(query);
+      const data = query
+        ? await searchMovies(query)
+        : await getPopularMovies(); // 👈 si está vacío, traemos populares
       setMovies(data);
       setError(null);
     } catch (err) {
@@ -22,6 +24,7 @@ const Home = () => {
       setLoading(false);
     }
   };
+
 
   useEffect(() => {
     const fetchMovies = async () => {

@@ -3,7 +3,7 @@ import styles from './MovieCard.module.css';
 import { FaHeart, FaRegHeart, FaPlus, FaMinus, FaEye, FaCheck  } from 'react-icons/fa';
 
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, onOpenDetail  }) => {
 const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 const [favorites, setfavorites] = useState(false);
 const [myList, setMyList] = useState(false);
@@ -44,7 +44,7 @@ const addToMyList = () => {
             )}
             </div>
           </div>
-          <button className={styles.infoButton}>+ INFO</button>
+          <button className={styles.infoButton} onClick={() => onOpenDetail(movie)}>+ INFO</button>
         </div>
       </div>
     </div>

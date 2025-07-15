@@ -11,6 +11,11 @@ const SearchBar = ({ onSearch }) => {
     }
   };
 
+  const handleDelete = (e) => {
+    setInput('');
+    onSearch('');
+  };
+
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <input
@@ -21,6 +26,7 @@ const SearchBar = ({ onSearch }) => {
         className={styles.input}
       />
       <button type="submit" className={styles.button}>Buscar</button>
+      <button type="button" className={styles.button} onClick={handleDelete}>delete</button>
     </form>
   );
 };

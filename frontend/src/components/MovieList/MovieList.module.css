@@ -1,8 +1,42 @@
-.listContainer {
+/* .listContainer {
     width: 99%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     border: 2px solid green;
+} */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  color: white;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
