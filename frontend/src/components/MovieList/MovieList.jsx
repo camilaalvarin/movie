@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import MovieCard from "../MovieCard/MovieCard.jsx";
 import styles from './MovieList.module.css'
+import MovieDetail from "../../pages/MovieDetail/MovieDetail.jsx";
 
 const MovieList = ({ movies }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
@@ -14,7 +15,7 @@ const MovieList = ({ movies }) => {
   };
 
   return (
-     <div>
+     <div className={styles.listContainer}>
       {movies.map((movie) => (
         <MovieCard
           key={movie.id}

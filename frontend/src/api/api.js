@@ -24,3 +24,30 @@ export const searchMovies = async (query) => {
   const data = await res.json();
   return data.results;
 };
+
+export const getMovieCredits = async (movieId) => {
+  try {
+    const response = await fetch(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=es`);
+    const data = await response.json();
+    return data.cast.slice(0, 4); // devolvemos los primeros 5 actores
+  } catch (error) {
+    throw new Error("Error al obtener el elenco");
+  }
+};
+
+export const getMovieTrailer = async (movieId) => {
+  try {
+    const response = await fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}&language=es-ES`);
+    const data = await response.json();
+
+    const trailer = data.results.find(
+      (video) => video.type === 'Trailer' && video.site === 'YouTube'
+    );
+
+    return trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : null;
+  } catch (error) {
+    console.error('Error al obtener el tráiler:', error.message);
+    return null;
+  }
+};
+
